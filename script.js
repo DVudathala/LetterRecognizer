@@ -22,7 +22,7 @@ canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mouseout', stopDrawing);
 
 animateResult('Fetching JSON...');
-fetch('network (5).json')
+fetch('network.json')
   .then(response => {
     return response.json();
   })
