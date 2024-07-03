@@ -17,9 +17,9 @@ let lastX = 0;
 let lastY = 0;
 
 canvas.addEventListener('mousedown', startDrawing);
-canvas.addEventListener('touchstart', startDrawing);
+canvas.addEventListener('touchstart', startDrawingTouch);
 canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('touchmove', draw);
+canvas.addEventListener('touchmove', drawTouch);
 canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('touchend', stopDrawing);
 canvas.addEventListener('mouseout', stopDrawing);
@@ -48,6 +48,14 @@ function startDrawing(event) {
   lastY = Math.floor((event.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height);
 }
 
+function startDrawingTouch(e) {
+  animateResult('startDrawing');
+  isDrawing = true;
+  const rect = canvas.getBoundingClientRect();
+  lastX = Math.floor((e.touches[0].clientX - rect.left) / (rect.right - rect.left) * canvas.width);
+  lastY = Math.floor((e.touches[0].clientY - rect.top) / (rect.bottom - rect.top) * canvas.height);
+}
+
 function draw(event) {
   animateResult('draw');
   if (!isDrawing) return;
@@ -55,6 +63,20 @@ function draw(event) {
   const rect = canvas.getBoundingClientRect();
   const x = Math.floor((event.clientX - rect.left) / (rect.right - rect.left) * canvas.width);
   const y = Math.floor((event.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height);
+
+  drawLine(lastX, lastY, x, y);
+
+  lastX = x;
+  lastY = y;
+}
+
+function drawTouch(e) {
+  animateResult('draw');
+  if (!isDrawing) return;
+
+  const rect = canvas.getBoundingClientRect();
+  const x = Math.floor((e.touches[0].clientX - rect.left) / (rect.right - rect.left) * canvas.width);
+  const y = Math.floor((e.touches[0].clientX - rect.top) / (rect.bottom - rect.top) * canvas.height);
 
   drawLine(lastX, lastY, x, y);
 
