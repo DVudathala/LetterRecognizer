@@ -49,6 +49,7 @@ function startDrawing(event) {
 }
 
 function startDrawingTouch(event) {
+  event.preventDefault();
   body.classList.add("stop-scrolling");
   isDrawing = true;
   const rect = canvas.getBoundingClientRect();
