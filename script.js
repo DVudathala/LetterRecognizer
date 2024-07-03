@@ -17,9 +17,13 @@ let lastX = 0;
 let lastY = 0;
 
 canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('touchstart', startDrawing);
 canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('touchmove', draw);
 canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('touchend', stopDrawing);
 canvas.addEventListener('mouseout', stopDrawing);
+canvas.addEventListener('touchcancel', stopDrawing);
 
 animateResult('Fetching JSON...');
 fetch('network.json')
