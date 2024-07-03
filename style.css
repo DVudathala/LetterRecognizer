@@ -19,13 +19,7 @@ h1, p, div, button {
 
 p {
   text-align: center;
-  position: fixed;
   align-self: flex-end;
-  left: 0;
-  bottom: 0px;
-  height: 30px;
-  width: 100%;
-  background-color: #051126;
 }
 
 @keyframes fadeIn {
