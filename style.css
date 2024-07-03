@@ -1,0 +1,140 @@
+html {
+  height: 100%;
+  width: 100%;
+  background-color: #051126;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2.1em;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+h1, p, div, button {
+  color: white;
+  font-family: Saira, sans-serif;
+}
+
+p {
+  text-align: center;
+  position: fixed;
+  align-self: flex-end;
+  left: 0;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+  background-color: #051126;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#resultDiv {
+  font-size: 1.6em;
+  background-color: #081c31;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px auto;
+  margin-top: 0px;
+  max-width: 90%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+  transition: opacity 0.3s ease-in-out;
+}
+
+@keyframes revealText {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes revealCharacter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#resultDiv span {
+  opacity: 0;
+  animation: revealCharacter 0.3s forwards;
+}
+
+.result-animation.animate {
+  animation: revealText 1s ease forwards;
+}
+
+.container {
+  margin-top: -5px;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 13px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 13px rgba(255, 255, 255, 0.5);
+  }
+}
+
+#drawingArea {
+  border: 2px solid white;
+  border-radius: 10px;
+  margin: 20px auto;
+  display: block;
+  animation: pulse 2s infinite alternate ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button {
+  position: relative;
+  color: white;
+  border-color: white;
+  border-radius: 0px 0px 10px 10px;
+  border-style: solid;
+  font-size: 1.25em;
+  border-top: 2px;
+  width: 130px;
+  height: 50px;
+  top: -20px;
+}
+
+#recognizeButton {
+  background-color: #3564e6;
+}
+
+#clearButton {
+  background-color: #e63b3b;
+}
+
+#recognizeButton:hover {
+  background-color: #2a4cf6;
+}
+
+#clearButton:hover {
+  background-color: #d33131;
+}
