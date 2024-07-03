@@ -42,7 +42,6 @@ fetch('network.json')
 
 function startDrawing(event) {
   animateResult('startDrawing');
-  body.classList.add('stop-scrolling');
   isDrawing = true;
   const rect = canvas.getBoundingClientRect();
   lastX = Math.floor((event.clientX - rect.left) / (rect.right - rect.left) * canvas.width);
@@ -66,7 +65,6 @@ function draw(event) {
 function stopDrawing() {
   animateResult('stopDrawing');
   isDrawing = false;
-  body.classList.remove('stop-scrolling');
 }
 
 function drawLine(x1, y1, x2, y2) {
