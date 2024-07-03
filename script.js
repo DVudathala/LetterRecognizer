@@ -41,7 +41,6 @@ fetch('network.json')
   });
 
 function startDrawing(event) {
-  animateResult('startDrawing');
   isDrawing = true;
   const rect = canvas.getBoundingClientRect();
   lastX = Math.floor((event.clientX - rect.left) / (rect.right - rect.left) * canvas.width);
@@ -49,7 +48,6 @@ function startDrawing(event) {
 }
 
 function startDrawingTouch(e) {
-  animateResult('startDrawingTouch');
   isDrawing = true;
   const rect = canvas.getBoundingClientRect();
   lastX = Math.floor((e.touches[0].clientX - rect.left) / (rect.right - rect.left) * canvas.width);
@@ -57,7 +55,6 @@ function startDrawingTouch(e) {
 }
 
 function draw(event) {
-  animateResult('draw');
   possibleDiv.innerText = e.touches[0].clientX.toString() + e.touches[0].clientY.toString();
   if (!isDrawing) return;
 
@@ -72,7 +69,6 @@ function draw(event) {
 }
 
 function drawTouch(e) {
-  animateResult('drawTouch');
   if (!isDrawing) return;
 
   const rect = canvas.getBoundingClientRect();
@@ -86,7 +82,6 @@ function drawTouch(e) {
 }
 
 function stopDrawing() {
-  animateResult('stopDrawing');
   isDrawing = false;
 }
 
