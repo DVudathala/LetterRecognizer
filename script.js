@@ -41,6 +41,7 @@ fetch('network.json')
   });
 
 function startDrawing(event) {
+  body.classList.add("stop-scrolling");
   isDrawing = true;
   const rect = canvas.getBoundingClientRect();
   lastX = Math.floor((event.clientX - rect.left) / (rect.right - rect.left) * canvas.width);
@@ -48,6 +49,7 @@ function startDrawing(event) {
 }
 
 function startDrawingTouch(event) {
+  body.classList.add("stop-scrolling");
   isDrawing = true;
   const rect = canvas.getBoundingClientRect();
   lastX = Math.floor((event.touches[0].clientX - rect.left) / (rect.right - rect.left) * canvas.width);
@@ -81,6 +83,7 @@ function drawTouch(event) {
 }
 
 function stopDrawing() {
+  body.classList.remove("stop-scrolling");
   isDrawing = false;
 }
 
