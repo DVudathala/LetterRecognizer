@@ -47,15 +47,14 @@ function startDrawing(event) {
   lastY = Math.floor((event.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height);
 }
 
-function startDrawingTouch(e) {
+function startDrawingTouch(event) {
   isDrawing = true;
   const rect = canvas.getBoundingClientRect();
-  lastX = Math.floor((e.touches[0].clientX - rect.left) / (rect.right - rect.left) * canvas.width);
-  lastY = Math.floor((e.touches[0].clientY - rect.top) / (rect.bottom - rect.top) * canvas.height);
+  lastX = Math.floor((event.touches[0].clientX - rect.left) / (rect.right - rect.left) * canvas.width);
+  lastY = Math.floor((event.touches[0].clientY - rect.top) / (rect.bottom - rect.top) * canvas.height);
 }
 
 function draw(event) {
-  possibleDiv.innerText = e.touches[0].clientX.toString() + e.touches[0].clientY.toString();
   if (!isDrawing) return;
 
   const rect = canvas.getBoundingClientRect();
@@ -68,12 +67,12 @@ function draw(event) {
   lastY = y;
 }
 
-function drawTouch(e) {
+function drawTouch(event) {
   if (!isDrawing) return;
 
   const rect = canvas.getBoundingClientRect();
-  const x = Math.floor((e.touches[0].clientX - rect.left) / (rect.right - rect.left) * canvas.width);
-  const y = Math.floor((e.touches[0].clientY - rect.top) / (rect.bottom - rect.top) * canvas.height);
+  const x = Math.floor((event.touches[0].clientX - rect.left) / (rect.right - rect.left) * canvas.width);
+  const y = Math.floor((event.touches[0].clientY - rect.top) / (rect.bottom - rect.top) * canvas.height);
 
   drawLine(lastX, lastY, x, y);
 
