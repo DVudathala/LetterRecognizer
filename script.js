@@ -50,7 +50,6 @@ function startDrawing(event) {
 
 function startDrawingTouch(e) {
   animateResult('startDrawingTouch');
-  possibleDiv.innerText = e.touches[0].clientX.toString() + e.touches[0].clientY.toString();
   isDrawing = true;
   const rect = canvas.getBoundingClientRect();
   lastX = Math.floor((e.touches[0].clientX - rect.left) / (rect.right - rect.left) * canvas.width);
@@ -78,7 +77,7 @@ function drawTouch(e) {
 
   const rect = canvas.getBoundingClientRect();
   const x = Math.floor((e.touches[0].clientX - rect.left) / (rect.right - rect.left) * canvas.width);
-  const y = Math.floor((e.touches[0].clientX - rect.top) / (rect.bottom - rect.top) * canvas.height);
+  const y = Math.floor((e.touches[0].clientY - rect.top) / (rect.bottom - rect.top) * canvas.height);
 
   drawLine(lastX, lastY, x, y);
 
