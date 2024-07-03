@@ -5,6 +5,7 @@ const clearButton = document.getElementById('clearButton');
 const resultDiv = document.getElementById('resultDiv');
 const possibleDiv = document.getElementById('possibleDiv');
 const networkDiv = document.getElementById('networkDiv');
+const body = document.body;
 
 const network = new brain.NeuralNetwork();
 
@@ -21,7 +22,7 @@ canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mouseout', stopDrawing);
 
 animateResult('Fetching JSON...');
-fetch('network.json')
+fetch('network (5).json')
   .then(response => {
     return response.json();
   })
@@ -36,6 +37,7 @@ fetch('network.json')
   });
 
 function startDrawing(event) {
+  body.classList.add('stop-scrolling');
   isDrawing = true;
   const rect = canvas.getBoundingClientRect();
   lastX = Math.floor((event.clientX - rect.left) / (rect.right - rect.left) * canvas.width);
@@ -57,6 +59,7 @@ function draw(event) {
 
 function stopDrawing() {
   isDrawing = false;
+  body.classList.remove('stop-scrolling');
 }
 
 function drawLine(x1, y1, x2, y2) {
